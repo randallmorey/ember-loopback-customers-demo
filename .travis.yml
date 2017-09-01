@@ -44,5 +44,7 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: $S3_BUCKET_DEV
   skip_cleanup: true
+  file_glob: true
+  file: dist/**
   on:
     branch: develop
