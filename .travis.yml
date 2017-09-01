@@ -36,7 +36,7 @@ after_success:
   - npm run semantic-release
 
 before_deploy:
-  - npm build
+  - npm run build
 
 deploy:
   provider: s3
