@@ -1,0 +1,82 @@
+<form {{action 'submit' on='submit'}} novalidate>
+
+  <div class="form-group">
+    <label for='email' class='form-control-label'>Email</label>
+    {{input
+      name='email'
+      value=user.email
+      type='email'
+      id='email'
+      class=(concat 'form-control'
+        (if user.errors.email ' is-invalid'))
+      aria-describedby='emailHelp'}}
+    {{#each user.errors.email as |error|}}
+      <div class="invalid-feedback">{{error.message}}</div>
+    {{/each}}
+    <small id="emailHelp" class="form-text text-muted">
+      We'll never share your email with anyone else.
+    </small>
+  </div><!-- /.form-group -->
+
+  <div class="form-group">
+    <label for='emailConfirmation' class='form-control-label'>
+      Confirm Email
+    </label>
+    {{input
+      name='emailConfirmation'
+      value=user.emailConfirmation
+      type='email'
+      id='emailConfirmation'
+      class=(concat 'form-control'
+        (if user.errors.emailConfirmation ' is-invalid'))
+      aria-describedby='emailConfirmationHelp'}}
+    {{#each user.errors.emailConfirmation as |error|}}
+      <div class="invalid-feedback">{{error.message}}</div>
+    {{/each}}
+    <small id="emailConfirmationHelp" class="form-text text-muted">
+      Please enter your email again to confirm.
+    </small>
+  </div><!-- /.form-group -->
+
+  <div class="form-group">
+    <label for='password' class='form-control-label'>Password</label>
+    {{input
+      name='password'
+      value=user.password
+      type='password'
+      id='password'
+      class=(concat 'form-control'
+        (if user.errors.password ' is-invalid'))
+      aria-describedby='passwordHelp'}}
+    {{#each user.errors.password as |error|}}
+      <div class="invalid-feedback">{{error.message}}</div>
+    {{/each}}
+    <small id="passwordHelp" class="form-text text-muted">
+      Numbers and special characters are allowed, but not required.
+      Memorable phrases of four or more words make strong passwords.
+    </small>
+  </div><!-- /.form-group -->
+
+  <div class="form-group">
+    <label for='passwordConfirmation' class='form-control-label'>
+      Confirm Password
+    </label>
+    {{input
+      name='passwordConfirmation'
+      value=user.passwordConfirmation
+      type='password'
+      id='passwordConfirmation'
+      class=(concat 'form-control'
+        (if user.errors.passwordConfirmation ' is-invalid'))
+      aria-describedby='passwordConfirmationHelp'}}
+    {{#each user.errors.passwordConfirmation as |error|}}
+      <div class="invalid-feedback">{{error.message}}</div>
+    {{/each}}
+    <small id="passwordConfirmationHelp" class="form-text text-muted">
+      Please enter your password again to confirm.
+    </small>
+  </div><!-- /.form-group -->
+
+  <button class="btn btn-primary" type="submit">Register</button>
+
+</form>

@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  ember: &defaults
+    image: randallmorey/ember-cli:2.14.2
+    entrypoint: ['ember']
+    command: ['server']
+    volumes:
+      - .:/ember-cli-app
+    ports:
+      - 3000:3000
+      - 4200:4200
+      - 49152:49152
+  npm:
+    <<: *defaults
+    entrypoint: ['npm']
+    command: ['--help']
+  yarn:
+    <<: *defaults
+    entrypoint: ['yarn']
+    command: ['--help']
